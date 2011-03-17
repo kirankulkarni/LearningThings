@@ -1,0 +1,114 @@
+* Status
+  g - Used to refresh the status-area
+* Untracked
+  |-----+---------------------------------------------------|
+  | key | function                                          |
+  |-----+---------------------------------------------------|
+  | s   | stage the current untracked file.                 |
+  |     | if on Untracked tile, stages every untracked file |
+  |-----+---------------------------------------------------|
+  | i   | ignore the file and adds it in .ignore            |
+  |-----+---------------------------------------------------|
+  | I   | ignores and add entry in .git/info/exclude        |
+  |-----+---------------------------------------------------|
+  | k   | Deletes the file forever                          |
+  |-----+---------------------------------------------------|
+  
+* Changes
+  |-------+----------------------------------------------|
+  | key   | function                                     |
+  |-------+----------------------------------------------|
+  | s     | Stage the changes                            |
+  |-------+----------------------------------------------|
+  | u     | Unstage the change                           |
+  |-------+----------------------------------------------|
+  | S     | Stage all the changes                        |
+  |-------+----------------------------------------------|
+  | U     | unstage all the changes                      |
+  |-------+----------------------------------------------|
+  | C-u S | Stage all changes and untracked files        |
+  |-------+----------------------------------------------|
+  | k     | discard an uncomitted hunk                   |
+  |-------+----------------------------------------------|
+  | c     | creates buffer to write a change description |
+  |       | and press C-c C-c to commit                  |
+  |-------+----------------------------------------------|
+** Change Description buffer
+    |---------+------------------------------------|
+    | key     | function                           |
+    |---------+------------------------------------|
+    | C-c C-a | toggle a flag that determines      |
+    |         | whether the next commit will amend |
+    |         | the current commit in HEAD.        |
+    |         | Dont know what that means :P       |
+    |---------+------------------------------------|
+    | C-c C-s | Toggles signoff option             |
+    |---------+------------------------------------|
+    | C-c C-c | Saves the change description       |
+    |---------+------------------------------------|
+
+* Logs
+  | key        | function              |
+  |------------+-----------------------|
+  | l          | creates a log buffer  |
+  | L or C-u L | show more verbose log |
+  |------------+-----------------------|
+** Log buffer commands
+   | key            | function                                   |
+   |----------------+--------------------------------------------|
+   | e              | show more entries                          |
+   | C-u e          | Show all entries                           |
+   | RET            | Show more information of a commit,         |
+   |                | in a seperate buffer                       |
+   | SPC and DEL(?) | Also show more information and             |
+   |                | hides it respectively                      |
+   | a              | Apply the current commit to current branch |
+   | A              | cherry-pick the current commit             |
+   |                | will also commit automatically when there  |
+   |                | have not been any conflicts                |
+   | v              | revert the current commit                  |
+   | C-w            | copy sha1 into the kill ring               |
+   | .              | mark/unmark the current commit             |
+   | C-u ..         | Unmark the marked commit                   |
+   | '='            | show the difference between marked and     |
+   |                | unmarked commit                            |
+   #+TBLFM: 
+
+* Reflog
+  Could not understand what this is.
+  h, H browse reflog
+* Diffing
+  d, D - show the diff
+  a    - apply the hunk or changeset
+  v    - apply selected changes in reverse
+* Tagging
+  t - lightweight tag
+  T - Annoted tag
+  
+* Stashing
+  z - Create a stash
+  a - apply the stash
+  A - pop the stash
+  k - delete the stash
+
+* Branches
+  b - switch to a branch
+  B - Create new branch and immediately switch to it
+  V - list all local and remote branches
+** Branch list buffer
+   k      - delete the branch
+   C-u k  - delete the branch even  if its not merged into current tree.
+   m      - manually merge the branch
+   M      - Automatically merge the branch
+   b      - Checkout branch in the current line
+   V      - Refreshes the list
+   q      - Quit and delete the buffer window
+	    
+* Wazzup
+  w - summary of how other branches relate to current branch
+  i - ignore/unignore branch 
+
+* Pushing and Pulling
+  P - git push
+  f - git remote update
+  F - git pull
