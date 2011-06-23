@@ -1,0 +1,2 @@
+# Batch converting CR2 to JPEG
+for i in *.CR2; do dcraw -c -a -w -v   $i | cjpeg -quality 100 > $i.jpg; done;
